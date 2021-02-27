@@ -42,7 +42,8 @@ Notes:{p_end}
 {pstd}- {it:baseline_yi} refers to a continuous or binary outcome variable measured at baseline.{p_end}
 {pstd}- {it:treatvar} must be a single numerical variable with information on treatment status.
 This variable could be either binary or categorical. The reference treatment (or control group) must take the value of zero.{p_end}
-{pstd}- {it:respvar} must be a single binary variable that takes the value of 1 for respondents.{p_end}
+{pstd}- {it:respvar} must be a single binary variable that takes the value of 1 for respondents. If response varies at the outcome level, 
+then researchers should apply the {cmd:attregtest} command separately for each outcome using its response variable.{p_end}
 
 {marker description}{...}
 {title:Description}
