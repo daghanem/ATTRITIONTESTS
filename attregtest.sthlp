@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 1.0.0 15Feb2021}{...}
+{* *! version 1.2.0 05March2021}{...}
 {findalias asfradohelp}{...}
 {vieweralsosee "" "--"}{...}
 {vieweralsosee "[R] help" "help help"}{...}
@@ -22,7 +22,7 @@
 {ifin}
 {cmd:,}
 treatvar(varname)
-respvar(varname)
+respvars(varlist)
 [{it:options}]
 
 {synoptset 24 tabbed}{...}
@@ -37,13 +37,15 @@ only be used if the goal is to conduct the attrition tests pooling the follow-up
 {synoptline}
 {p2colreset}{...}
 
-{pstd}
-Notes:{p_end}
+
+{pstd}Notes:{p_end}
 {pstd}- {it:baseline_yi} refers to a continuous or binary outcome variable measured at baseline.{p_end}
 {pstd}- {it:treatvar} must be a single numerical variable with information on treatment status.
 This variable could be either binary or categorical. The reference treatment (or control group) must take the value of zero.{p_end}
-{pstd}- {it:respvar} must be a single binary variable that takes the value of 1 for respondents. If response varies at the outcome level, 
-then researchers should apply the {cmd:attregtest} command separately for each outcome using its response variable.{p_end}
+{pstd}- {it:respvars} is the list of the response variables for each one of the baseline outcomes. Each response variable must be a binary 
+variable that takes the value of 1 if the outcome in question is observed in the follow-up survey and zero otherwise.  
+The number and order of the response variables must correspond to the number and order of the baseline outcome variables.{p_end} 
+{pstd}- The command {cmd:attregtest} requires that none of the variables in the dataset is named {it:response}.{p_end}
 
 {marker description}{...}
 {title:Description}
@@ -183,23 +185,24 @@ See {helpb esttab:[R] {it:esttab}} for more details on the formats that are supp
 {phang}{stata "sort random":. sort random}{p_end}
 {phang}{stata "gen sex = _n <= 500":. gen sex = _n <= 500}{p_end}
 
-{phang}Response status:{p_end}
-{phang}{stata "gen resp  = (uniform() < .5)": . gen resp  = (uniform() < .5)}{p_end}
+{phang} Outcome-specific response status:{p_end}
+{phang}{stata "gen resp_y1  = (uniform() < .5)": . gen resp_y1  = (uniform() < .5)}{p_end}
+{phang}{stata "gen resp_y2  = (uniform() < .5)": . gen resp_y2  = (uniform() < .5)}{p_end}
 
 {phang}Treatment status:{p_end}
 {phang}{stata "randtreat, generate(treat) replace": . randtreat, generate(treat) replace}{p_end}
 
 
 {phang} 1) Tests of internal validity for single treatment case: completely randomized experiment{p_end}
-{phang}{stata "attregtest baseline_y1 baseline_y2, treatvar(treat) respvar(resp)": . attregtest baseline_y1 baseline_y2, treatvar(treat) respvar(resp)}{p_end}
+{phang}{stata "attregtest baseline_y1 baseline_y2, treatvar(treat) respvars(resp_y1 resp_y2)": . attregtest baseline_y1 baseline_y2, treatvar(treat) respvars(resp_y1 resp_y2)}{p_end}
 
 {phang} 2) Tests of internal validity for multiple treatment case: completely randomized experiment{p_end}
 {phang}{stata "randtreat, generate(treat) replace mult(4)": . randtreat, generate(treat) replace mult(4)}{p_end}
-{phang}{stata "attregtest baseline_y1 baseline_y2, treatvar(treat) respvar(resp)": . attregtest baseline_y1 baseline_y2, treatvar(treat) respvar(resp)}{p_end}
+{phang}{stata "attregtest baseline_y1 baseline_y2, treatvar(treat) respvars(resp_y1 resp_y2)": . attregtest baseline_y1 baseline_y2, treatvar(treat) respvars(resp_y1 resp_y2)}{p_end}
 
 {phang} 3) Tests of internal validity for single treatment case: stratified randomized experiment{p_end}
 {phang}{stata "randtreat, generate(treat) replace strata(sex)": . randtreat, generate(treat) replace strata(sex)}{p_end}
-{phang}{stata "attregtest baseline_y1 baseline_y2, treatvar(treat) respvar(resp) stratavar(sex)": . attregtest baseline_y1 baseline_y2, treatvar(treat) respvar(resp) stratavar(sex)}{p_end}
+{phang}{stata "attregtest baseline_y1 baseline_y2, treatvar(treat) respvars(resp_y1 resp_y2) stratavar(sex)": . attregtest baseline_y1 baseline_y2, treatvar(treat) respvars(resp_y1 resp_y2) stratavar(sex)}{p_end}
  
 {marker references}{...}
 {title:References}
