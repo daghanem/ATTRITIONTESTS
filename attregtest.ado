@@ -1,4 +1,4 @@
-*!   attregtest v1.2.0  GHO05March2021
+*!   attregtest v1.3.0  GHO10May2021
 
 
 program attregtest, eclass 
@@ -266,14 +266,14 @@ if 	"`stratavar'"=="" {
 			if "`vce'"=="" {
 			
 				if "`timevar'"=="" {
-				esttab `outcomes' , drop(_cons) cells(b(fmt(3)) se(par fmt(3))) ///
+				esttab `outcomes' using "`export'", replace drop(_cons) cells(b(fmt(3)) se(par fmt(3))) ///
 				legend label    nostar            ///
 				stats(meanCA p_IVR p_IVP N, fmt(3 3 3 0) label("Control Attritors(+)" "Test of IV-R (p-val)" "Test of IV-P (p-val)" N)) ///
 				addnotes("(+) Mean baseline outcome control attritors")
 				}
 			
 				if "`timevar'"!="" {
-				esttab `outcomes' , cells(b(fmt(3)) se(par fmt(3))) ///
+				esttab `outcomes' using "`export'", replace cells(b(fmt(3)) se(par fmt(3))) ///
 				legend label    nostar            ///
 				stats(meanCA p_IVR p_IVP N, fmt(3 3 3 0) label("Control Attritors(+)" "Test of IV-R (p-val)" "Test of IV-P (p-val)" N)) ///
 				addnotes("(+) Mean baseline outcome control attritors")
@@ -286,14 +286,14 @@ if 	"`stratavar'"=="" {
 	  	  if "`vce'"!="" {
 		  
 				if "`timevar'"=="" {
-				esttab `outcomes', drop(_cons) cells(b(fmt(3)) se(par fmt(3))) ///
+				esttab `outcomes' using "`export'", replace drop(_cons) cells(b(fmt(3)) se(par fmt(3))) ///
 				legend label   nostar             ///
 				stats(meanCA p_IVR p_IVP N, fmt(3 3 3 0) label("Control Attritors(+)" "Test of IV-R (p-val)" "Test of IV-P (p-val)" N)) ///
 				addnotes("(+) Mean baseline outcome control attritors" "Standard errors are `vce'")
 				}
 			
 				if "`timevar'"!="" {
-				esttab `outcomes',  cells(b(fmt(3)) se(par fmt(3))) ///
+				esttab `outcomes' using "`export'", replace cells(b(fmt(3)) se(par fmt(3))) ///
 				legend label   nostar             ///
 				stats(meanCA p_IVR p_IVP N, fmt(3 3 3 0) label("Control Attritors(+)" "Test of IV-R (p-val)" "Test of IV-P (p-val)" N)) ///
 				addnotes("(+) Mean baseline outcome control attritors" "Standard errors are `vce'")
