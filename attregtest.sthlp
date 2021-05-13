@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 1.2.0 05March2021}{...}
+{* *! version 1.3.0 12May2021}{...}
 {findalias asfradohelp}{...}
 {vieweralsosee "" "--"}{...}
 {vieweralsosee "[R] help" "help help"}{...}
@@ -46,6 +46,9 @@ This variable could be either binary or categorical. The reference treatment (or
 variable that takes the value of 1 if the outcome in question is observed in the follow-up survey and zero otherwise.  
 The number and order of the response variables must correspond to the number and order of the baseline outcome variables.{p_end} 
 {pstd}- The command {cmd:attregtest} requires that none of the variables in the dataset is named {it:response}.{p_end}
+{pstd}- The command {cmd:attregtest} requires the most updated version of the package {helpb estout:[R] {it:estout}}. You can
+update this package using the following code: {it:ssc install estout, replace}.{p_end}
+
 
 {marker description}{...}
 {title:Description}
@@ -167,7 +170,7 @@ See {helpb esttab:[R] {it:esttab}} for more details on the formats that are supp
 {marker examples}{...}
 {title:Examples}
 
-{phang}To run these simulated examples you should download the command {helpb randtreat:[R] {it:randtreat}}.{p_end}
+{phang}To run these simulated examples you should download the command {helpb randtreat:[R] {it:randtreat}} using the following code:{it: ssc install randtreat}.{p_end}
 
 {phang}Generate simulated data:
 

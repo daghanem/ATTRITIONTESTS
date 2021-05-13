@@ -1,4 +1,4 @@
-*!   attregtest v1.3.0  GHO10May2021
+*!   attregtest v1.3.0  GHO12May2021
 
 
 program attregtest, eclass 
