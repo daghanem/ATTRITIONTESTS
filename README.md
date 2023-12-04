@@ -13,7 +13,7 @@ https://github.com/daghanem/ATTRITIONTESTS
 * Karen Ortiz-Becerra: University of San Diego
   
 ### Authors of the package ###
-* Karen Ortiz-Becerra, University of San Diego
+* Karen Ortiz-Becerra: University of San Diego
 * Sarojini Hirshleifer: University of California, Riverside
 * Dalia Ghanem: University of California, Davis 
 
