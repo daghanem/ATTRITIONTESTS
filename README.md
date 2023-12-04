@@ -20,14 +20,15 @@ https://github.com/daghanem/ATTRITIONTESTS
 
 ### How do I get set up? ###
 
-The package is now on the ssc archive in Stata. So you can simply use the following to download it:
+The package is now on the SSC archive in Stata. So you can simply download it by typing the following on the command window:
 
-ssc install attregtest, replace
+*ssc install attregtest, replace*
 
 For further help, type: 
 
- . help attregtest
+*help attregtest*
 
+Note: Every time we update the package, we post a brief description of the changes in Statalist and upload the new version to the SSC archive. Thus, we recommend users install the package directly from this archive to guarantee they have the most up-to-date version.
 
 ### Who do I talk to? ###
 
