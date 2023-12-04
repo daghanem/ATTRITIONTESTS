@@ -19,7 +19,9 @@ https://github.com/daghanem/ATTRITIONTESTS
 
 ### How do I get set up? ###
 
-Download the files in your personal ado directory. To find your personal ado directory [follow these instructions](https://www.stata.com/support/faqs/programming/personal-ado-directory/).
+The package is now on ssc. So you can simply use the following to download it:
+
+ssc install attregtest 
 
 For further help type: 
 
