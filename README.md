@@ -10,7 +10,7 @@ https://github.com/daghanem/ATTRITIONTESTS
 ### Authors of the paper ###
 * Dalia Ghanem: University of California, Davis 
 * Sarojini Hirshleifer: University of California, Riverside
-* Karen Ortiz-Becerra, University of San Diego
+* Karen Ortiz-Becerra: University of San Diego
   
 ### Authors of the package ###
 * Karen Ortiz-Becerra, University of San Diego
